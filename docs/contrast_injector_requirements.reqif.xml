@@ -1,0 +1,1479 @@
+<?xml version="1.0" ?>
+<REQ-IF SCHEMA-NOTE="honestly-scoped subset, see reqif_io.py">
+  <SPEC-OBJECTS>
+    <SPEC-OBJECT IDENTIFIER="un:un_needle" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need the injector's needle interface to minimize risk of needle-stick injury and misinsertion during contrast administration.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_catheter" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need a secure, leak-free connection between the injector syringe and the patient catheter line.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_flow" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need the injector to deliver contrast at a precisely controlled, programmable flow rate and volume.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_air" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need the system to prevent injection of air into the patient's vasculature.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_reservoir" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need reliable tracking of contrast media inventory and expiration status in the reservoir/syringe.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_occlusion" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need the system to detect line occlusion before it causes patient injury or extravasation.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_alarm" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need alarms that reliably reach my attention with appropriate priority and are distinguishable from one another.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_ui" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need a programming interface that prevents entry of clinically unsafe injection parameters.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_power" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician, I need the injector to keep operating safely through a mains power interruption during an injection.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_data" TYPE="UserNeed">
+      <ATTR NAME="text">As a clinician and biomed engineer, I need a complete, tamper-evident record of every injection delivered for the patient record and audits.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_sterilization" TYPE="UserNeed">
+      <ATTR NAME="text">As a biomed and infection-control engineer, I need reusable components to be validated for the facility's reprocessing procedure between patients.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_mechanical" TYPE="UserNeed">
+      <ATTR NAME="text">As a biomed engineer, I need the injector head and console to survive the mechanical and environmental conditions of a busy imaging suite.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_swsafety" TYPE="UserNeed">
+      <ATTR NAME="text">As a systems engineer, I need an independent software safety monitor that catches a runaway or hung main control loop before it can harm the patient.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="un:un_network" TYPE="UserNeed">
+      <ATTR NAME="text">As a biomed and IT engineer, I need the injector's network connection to the EMR/RIS to be secure and to never block a needed injection.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:needle_gauge_range" TYPE="Requirement">
+      <ATTR NAME="text">The system shall support single-use needles with gauge sizes from 18G to 24G for peripheral IV access.</ATTR>
+      <ATTR NAME="keyword">needle_gauge</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:needle_gauge_lockout" TYPE="Requirement">
+      <ATTR NAME="text">The injector shall reject a programmed flow rate that exceeds the maximum rate rated for the detected needle gauge.</ATTR>
+      <ATTR NAME="keyword">needle_gauge</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:needle_shield_engagement" TYPE="Requirement">
+      <ATTR NAME="text">The system shall provide a passive needle-shielding mechanism that engages automatically upon withdrawal.</ATTR>
+      <ATTR NAME="keyword">needle_shield</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:needle_shield_selftest" TYPE="Requirement">
+      <ATTR NAME="text">The needle-shielding mechanism shall present a visible indicator confirming it has engaged before the needle is discarded.</ATTR>
+      <ATTR NAME="keyword">needle_shield</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:needle_compat_labeling" TYPE="Requirement">
+      <ATTR NAME="text">The system shall display the compatible needle gauge range on the injector head housing.</ATTR>
+      <ATTR NAME="keyword">needle_label</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:needle_label_multilang" TYPE="Requirement">
+      <ATTR NAME="text">The compatible needle gauge label shall be provided in English and at least one additional facility-configurable language.</ATTR>
+      <ATTR NAME="keyword">needle_label</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:luer_lock_torque" TYPE="Requirement">
+      <ATTR NAME="text">The syringe-to-catheter connector shall be a standard luer-lock fitting rated to withstand injection pressures up to 325 psi without disconnection.</ATTR>
+      <ATTR NAME="keyword">luer_lock</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:luer_lock_indicator" TYPE="Requirement">
+      <ATTR NAME="text">The system shall provide a visible or tactile confirmation that the luer-lock connection is fully seated before permitting injection.</ATTR>
+      <ATTR NAME="keyword">luer_lock</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:line_leak_detection" TYPE="Requirement">
+      <ATTR NAME="text">The system shall detect a pressure drop consistent with a line disconnect or leak within 2 seconds of onset and halt injection.</ATTR>
+      <ATTR NAME="keyword">line_leak</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:leak_alarm_latency" TYPE="Requirement">
+      <ATTR NAME="text">The leak-detection alarm shall annunciate within 500 ms of leak detection.</ATTR>
+      <ATTR NAME="keyword">line_leak</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:line_leak_selftest" TYPE="Requirement">
+      <ATTR NAME="text">The pressure sensor used for leak detection shall execute a zero-offset self-check before each injection.</ATTR>
+      <ATTR NAME="keyword">line_leak</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:catheter_compat_matrix" TYPE="Requirement">
+      <ATTR NAME="text">The system shall restrict programmable flow rate and pressure limits to values compatible with the catheter gauge selected by the operator.</ATTR>
+      <ATTR NAME="keyword">catheter_compat</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:catheter_compat_override" TYPE="Requirement">
+      <ATTR NAME="text">An operator override of the catheter compatibility restriction shall require a two-step confirmation and shall be logged.</ATTR>
+      <ATTR NAME="keyword">catheter_compat</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:flow_rate_accuracy" TYPE="Requirement">
+      <ATTR NAME="text">The injector shall deliver programmed flow rate within +/-5% of setpoint across the rated range of 0.1 to 10 mL/s.</ATTR>
+      <ATTR NAME="keyword">flow_rate</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:flow_rate_closed_loop" TYPE="Requirement">
+      <ATTR NAME="text">The pump control loop shall sample the flow sensor at 100 Hz and adjust motor drive within one control cycle.</ATTR>
+      <ATTR NAME="keyword">flow_rate</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:flow_rate_calibration" TYPE="Requirement">
+      <ATTR NAME="text">The injector shall support a field flow-rate calibration procedure traceable to a certified reference volume.</ATTR>
+      <ATTR NAME="keyword">flow_rate</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:volume_accuracy" TYPE="Requirement">
+      <ATTR NAME="text">The injector shall deliver the programmed total volume within +/-2% for volumes between 5 and 200 mL.</ATTR>
+      <ATTR NAME="keyword">volume_delivered</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:volume_accuracy_calibration" TYPE="Requirement">
+      <ATTR NAME="text">The system shall support a field volume-accuracy verification procedure using a calibrated graduated cylinder.</ATTR>
+      <ATTR NAME="keyword">volume_delivered</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:dual_syringe_sync" TYPE="Requirement">
+      <ATTR NAME="text">For dual-syringe (contrast/saline) configurations, the system shall synchronize switchover to within 50 ms of the programmed transition point.</ATTR>
+      <ATTR NAME="keyword">dual_syringe</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:dual_syringe_ratio" TYPE="Requirement">
+      <ATTR NAME="text">The system shall support programmable contrast:saline mixing ratios from 100:0 to 0:100 in 10% increments.</ATTR>
+      <ATTR NAME="keyword">dual_syringe</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:max_pressure_limit" TYPE="Requirement">
+      <ATTR NAME="text">The injector shall enforce an operator-programmable maximum line pressure limit between 50 and 325 psi.</ATTR>
+      <ATTR NAME="keyword">max_pressure</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:max_pressure_derate" TYPE="Requirement">
+      <ATTR NAME="text">The enforced maximum pressure limit shall automatically derate by 20% when ambient temperature exceeds 30 C, per the pump's thermal rating.</ATTR>
+      <ATTR NAME="keyword">max_pressure</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:air_sensor_detection" TYPE="Requirement">
+      <ATTR NAME="text">The system shall detect an air column of 0.10 mL or greater in the fluid path using ultrasonic air-in-line sensing.</ATTR>
+      <ATTR NAME="keyword">air_bubble</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:air_sensor_response" TYPE="Requirement">
+      <ATTR NAME="text">Upon air detection, the system shall halt the pump motor within 100 ms.</ATTR>
+      <ATTR NAME="keyword">air_bubble</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:air_sensor_selftest" TYPE="Requirement">
+      <ATTR NAME="text">The air-in-line sensor shall execute a power-on self-test and fault to a safe state if the self-test fails.</ATTR>
+      <ATTR NAME="keyword">air_bubble</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:air_purge_procedure" TYPE="Requirement">
+      <ATTR NAME="text">The system shall provide a guided air-purge priming sequence before the line is connected to the patient.</ATTR>
+      <ATTR NAME="keyword">air_purge</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:air_purge_verification" TYPE="Requirement">
+      <ATTR NAME="text">Completion of the air-purge sequence shall be verified by the air-in-line sensor reading clear before the system enables patient connection.</ATTR>
+      <ATTR NAME="keyword">air_purge</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:air_alarm_annunciation" TYPE="Requirement">
+      <ATTR NAME="text">The system shall annunciate a distinct audible and visual alarm pattern specific to air-in-line detection, distinguishable from occlusion alarms.</ATTR>
+      <ATTR NAME="keyword">air_bubble</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:reservoir_level_sensing" TYPE="Requirement">
+      <ATTR NAME="text">The system shall continuously monitor contrast reservoir fill level and estimate remaining deliverable volume within +/-3 mL.</ATTR>
+      <ATTR NAME="keyword">reservoir_level</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:low_reservoir_warning" TYPE="Requirement">
+      <ATTR NAME="text">The system shall issue a low-reservoir warning when remaining volume falls below the volume required to complete the programmed protocol.</ATTR>
+      <ATTR NAME="keyword">reservoir_level</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:lot_expiration_tracking" TYPE="Requirement">
+      <ATTR NAME="text">The system shall record the contrast lot number and expiration date scanned at syringe load and block injection past the expiration date.</ATTR>
+      <ATTR NAME="keyword">lot_expiration</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:lot_expiration_grace" TYPE="Requirement">
+      <ATTR NAME="text">The system shall warn, but not block, injection of contrast within 24 hours of its expiration date, and shall block outright after expiration.</ATTR>
+      <ATTR NAME="keyword">lot_expiration</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:reservoir_barcode_scan" TYPE="Requirement">
+      <ATTR NAME="text">The system shall verify contrast concentration and volume against a scanned barcode before enabling injection.</ATTR>
+      <ATTR NAME="keyword">reservoir_barcode</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:reservoir_barcode_mismatch" TYPE="Requirement">
+      <ATTR NAME="text">A barcode scan that does not match the previously loaded lot shall require operator re-confirmation before proceeding.</ATTR>
+      <ATTR NAME="keyword">reservoir_barcode</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:occlusion_pressure_threshold" TYPE="Requirement">
+      <ATTR NAME="text">The system shall detect a line occlusion when measured pressure exceeds the operator-set occlusion threshold for more than 300 ms.</ATTR>
+      <ATTR NAME="keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:occlusion_threshold_range" TYPE="Requirement">
+      <ATTR NAME="text">The occlusion pressure threshold shall be programmable from 10 to 300 psi in 5 psi increments.</ATTR>
+      <ATTR NAME="keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:occlusion_response_halt" TYPE="Requirement">
+      <ATTR NAME="text">Upon occlusion detection, the pump shall halt motor drive within 200 ms and hold the last commanded position.</ATTR>
+      <ATTR NAME="keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:extravasation_pattern_detect" TYPE="Requirement">
+      <ATTR NAME="text">The system shall flag a suspected extravasation pattern when pressure rises gradually without reaching the hard occlusion threshold, using a slope-based heuristic.</ATTR>
+      <ATTR NAME="keyword">extravasation</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:extravasation_operator_alert" TYPE="Requirement">
+      <ATTR NAME="text">A suspected extravasation pattern shall present a distinct on-screen advisory recommending clinical assessment, separate from the hard occlusion alarm.</ATTR>
+      <ATTR NAME="keyword">extravasation</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:occlusion_alarm_priority" TYPE="Requirement">
+      <ATTR NAME="text">Occlusion alarms shall be assigned the highest annunciation priority level in the alarm system, per IEC 60601-1-8 style prioritization.</ATTR>
+      <ATTR NAME="keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:alarm_priority_levels" TYPE="Requirement">
+      <ATTR NAME="text">The system shall implement three alarm priority levels (high, medium, low) each with a distinct audible pattern per IEC 60601-1-8.</ATTR>
+      <ATTR NAME="keyword">alarm_priority</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:alarm_visual_coding" TYPE="Requirement">
+      <ATTR NAME="text">Each alarm priority level shall be paired with a distinct visual indicator color (red, yellow, cyan).</ATTR>
+      <ATTR NAME="keyword">alarm_priority</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:alarm_silence_timeout" TYPE="Requirement">
+      <ATTR NAME="text">An operator-initiated alarm silence shall time out and re-annunciate after no more than 120 seconds if the underlying condition persists.</ATTR>
+      <ATTR NAME="keyword">alarm_silence</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:alarm_silence_max_duration" TYPE="Requirement">
+      <ATTR NAME="text">The maximum single silence duration for a high-priority alarm shall not exceed 2 minutes, per IEC 60601-1-8.</ATTR>
+      <ATTR NAME="keyword">alarm_silence</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:alarm_log_retention" TYPE="Requirement">
+      <ATTR NAME="text">The system shall retain the most recent 500 alarm events in non-volatile storage with timestamp and acknowledgment record.</ATTR>
+      <ATTR NAME="keyword">alarm_log</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:alarm_log_export" TYPE="Requirement">
+      <ATTR NAME="text">The system shall support exporting the alarm log in a structured, human-readable format for service review.</ATTR>
+      <ATTR NAME="keyword">alarm_log</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:param_range_validation" TYPE="Requirement">
+      <ATTR NAME="text">The user interface shall reject entry of a flow rate, volume, or pressure limit outside the clinically validated range for the selected protocol.</ATTR>
+      <ATTR NAME="keyword">param_validation</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:param_confirm_dialog" TYPE="Requirement">
+      <ATTR NAME="text">The user interface shall require a second, explicit confirmation before accepting a programmed parameter that exceeds a soft warning threshold.</ATTR>
+      <ATTR NAME="keyword">param_validation</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:protocol_library" TYPE="Requirement">
+      <ATTR NAME="text">The system shall provide a library of at least 10 preconfigured injection protocols selectable by exam type.</ATTR>
+      <ATTR NAME="keyword">protocol_library</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:protocol_library_custom" TYPE="Requirement">
+      <ATTR NAME="text">The system shall allow a site administrator to add up to 20 custom protocols to the library, subject to the same range validation as built-in protocols.</ATTR>
+      <ATTR NAME="keyword">protocol_library</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:ui_lockout_cleaning" TYPE="Requirement">
+      <ATTR NAME="text">The user interface shall lock out parameter entry while the system reports an active cleaning or reprocessing cycle.</ATTR>
+      <ATTR NAME="keyword">ui_lockout</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:ui_lockout_override" TYPE="Requirement">
+      <ATTR NAME="text">A supervisor override of the cleaning-cycle lockout shall require a service PIN and shall be logged.</ATTR>
+      <ATTR NAME="keyword">ui_lockout</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:battery_backup_runtime" TYPE="Requirement">
+      <ATTR NAME="text">The system shall provide battery backup capable of completing an in-progress injection and safely parking the pump for at least 5 minutes after loss of mains power.</ATTR>
+      <ATTR NAME="keyword">battery_backup</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:battery_health_monitor" TYPE="Requirement">
+      <ATTR NAME="text">The system shall monitor battery state of health and issue a service alert when capacity falls below 80% of rated.</ATTR>
+      <ATTR NAME="keyword">battery_backup</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:power_loss_state_preserve" TYPE="Requirement">
+      <ATTR NAME="text">Upon mains power loss, the system shall preserve the in-progress protocol state and resume without requiring re-programming once power is restored.</ATTR>
+      <ATTR NAME="keyword">power_loss</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:ground_fault_protection" TYPE="Requirement">
+      <ATTR NAME="text">The system shall detect a ground fault condition on the patient-connected circuit and disconnect within the time limits of IEC 60601-1.</ATTR>
+      <ATTR NAME="keyword">ground_fault</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:ground_fault_selftest" TYPE="Requirement">
+      <ATTR NAME="text">Ground fault protection circuitry shall be exercised by a self-test at power-on.</ATTR>
+      <ATTR NAME="keyword">ground_fault</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:injection_record_completeness" TYPE="Requirement">
+      <ATTR NAME="text">The system shall record programmed and actually-delivered flow rate, volume, and pressure profile for every injection.</ATTR>
+      <ATTR NAME="keyword">injection_record</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:injection_record_integrity" TYPE="Requirement">
+      <ATTR NAME="text">Each injection record shall include a checksum to detect post-hoc tampering.</ATTR>
+      <ATTR NAME="keyword">injection_record</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:injection_record_export" TYPE="Requirement">
+      <ATTR NAME="text">The system shall support exporting injection records in a structured format for integration with the hospital information system.</ATTR>
+      <ATTR NAME="keyword">injection_record</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:audit_trail_user_actions" TYPE="Requirement">
+      <ATTR NAME="text">The system shall log operator identity and timestamp for every parameter change, in a separate append-only audit trail.</ATTR>
+      <ATTR NAME="keyword">audit_trail</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:audit_trail_retention" TYPE="Requirement">
+      <ATTR NAME="text">The audit trail shall retain at least 2 years of operator action records before the oldest records may be archived.</ATTR>
+      <ATTR NAME="keyword">audit_trail</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:clock_sync_ntp" TYPE="Requirement">
+      <ATTR NAME="text">The system shall synchronize its internal clock to facility network time within +/-1 second when connected to the network.</ATTR>
+      <ATTR NAME="keyword">clock_sync</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:clock_sync_fallback" TYPE="Requirement">
+      <ATTR NAME="text">If network time is unavailable, the system shall fall back to its internal real-time clock and flag records with a reduced-confidence timestamp source.</ATTR>
+      <ATTR NAME="keyword">clock_sync</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:reprocessing_cycle_validation" TYPE="Requirement">
+      <ATTR NAME="text">Reusable fluid-path components shall be validated to withstand the facility's specified high-level disinfection cycle for a minimum of 100 cycles.</ATTR>
+      <ATTR NAME="keyword">reprocessing</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:reprocessing_cycle_count_display" TYPE="Requirement">
+      <ATTR NAME="text">The system shall display the remaining validated reprocessing cycle count for a reusable component that reports a use-counter.</ATTR>
+      <ATTR NAME="keyword">reprocessing</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:single_use_component_lockout" TYPE="Requirement">
+      <ATTR NAME="text">The system shall detect an already-used single-use syringe or tubing set, via an embedded use-counter chip, and prevent reuse.</ATTR>
+      <ATTR NAME="keyword">single_use_lockout</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:single_use_lockout_override" TYPE="Requirement">
+      <ATTR NAME="text">An override of the single-use lockout shall require a documented service-level authorization code, logged in the audit trail.</ATTR>
+      <ATTR NAME="keyword">single_use_lockout</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:housing_material_disinfectant" TYPE="Requirement">
+      <ATTR NAME="text">External housing materials shall be compatible with the facility's list of approved surface disinfectants without degradation over 500 wipe cycles.</ATTR>
+      <ATTR NAME="keyword">housing_material</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:ip_rating_fluid_ingress" TYPE="Requirement">
+      <ATTR NAME="text">The injector head shall meet at least IP34 fluid-ingress protection to tolerate incidental contrast spillage.</ATTR>
+      <ATTR NAME="keyword">ip_rating</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:emc_immunity" TYPE="Requirement">
+      <ATTR NAME="text">The system shall meet IEC 60601-1-2 electromagnetic immunity requirements for use adjacent to CT and angiography equipment.</ATTR>
+      <ATTR NAME="keyword">emc_immunity</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:emc_mri_conditional" TYPE="Requirement">
+      <ATTR NAME="text">If offered in an MRI-conditional configuration, the system shall be labeled per ASTM F2503 MRI conditional labeling requirements.</ATTR>
+      <ATTR NAME="keyword">emc_immunity</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:drop_shock_rating" TYPE="Requirement">
+      <ATTR NAME="text">The mobile console shall withstand a 75 cm drop onto a hard floor on any face without loss of basic safety function.</ATTR>
+      <ATTR NAME="keyword">drop_shock</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:caster_brake_stability" TYPE="Requirement">
+      <ATTR NAME="text">The mobile console shall not tip over when the loaded injector head arm is extended to its maximum reach at any caster-locked orientation.</ATTR>
+      <ATTR NAME="keyword">caster_stability</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:caster_lock_indicator" TYPE="Requirement">
+      <ATTR NAME="text">The system shall provide a visible indicator of caster-lock engagement state.</ATTR>
+      <ATTR NAME="keyword">caster_stability</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:watchdog_timer_reset" TYPE="Requirement">
+      <ATTR NAME="text">An independent hardware watchdog timer shall force a safe-state stop if the main control loop fails to service it within 250 ms.</ATTR>
+      <ATTR NAME="keyword">watchdog</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:watchdog_selftest_poweron" TYPE="Requirement">
+      <ATTR NAME="text">The watchdog circuit shall be exercised as part of power-on self-test before the system is placed in a ready state.</ATTR>
+      <ATTR NAME="keyword">watchdog</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:dual_channel_pressure_check" TYPE="Requirement">
+      <ATTR NAME="text">Line pressure shall be independently measured by two physically separate sensors, and injection shall halt if the two readings disagree by more than 15%.</ATTR>
+      <ATTR NAME="keyword">dual_channel</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:software_version_integrity" TYPE="Requirement">
+      <ATTR NAME="text">The system shall verify a cryptographic signature on the control software image at boot and refuse to run an unsigned or modified image.</ATTR>
+      <ATTR NAME="keyword">sw_integrity</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:sw_update_rollback" TYPE="Requirement">
+      <ATTR NAME="text">A failed software update shall automatically roll back to the last known-good verified image.</ATTR>
+      <ATTR NAME="keyword">sw_integrity</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:safe_state_definition" TYPE="Requirement">
+      <ATTR NAME="text">Following any detected fault, the system shall enter a defined safe state, motor de-energized, valve closed, alarm active, within 500 ms.</ATTR>
+      <ATTR NAME="keyword">safe_state</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:network_isolation_degrade" TYPE="Requirement">
+      <ATTR NAME="text">Loss of network connectivity to the EMR/RIS shall not prevent the system from delivering a locally-programmed injection.</ATTR>
+      <ATTR NAME="keyword">network_isolation</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:emr_worklist_integrity" TYPE="Requirement">
+      <ATTR NAME="text">Patient worklist data received from the EMR shall be validated, patient ID and exam type, against the operator's manual entry before an injection is enabled.</ATTR>
+      <ATTR NAME="keyword">emr_worklist</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:emr_data_encryption" TYPE="Requirement">
+      <ATTR NAME="text">Data exchanged with the EMR/RIS over the network shall be encrypted in transit using TLS 1.2 or higher.</ATTR>
+      <ATTR NAME="keyword">emr_worklist</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:remote_service_access_auth" TYPE="Requirement">
+      <ATTR NAME="text">Remote service access to the injector's diagnostic interface shall require multi-factor authentication and shall be logged.</ATTR>
+      <ATTR NAME="keyword">remote_access</ATTR>
+      <ATTR NAME="level">L1</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="req:remote_access_session_timeout" TYPE="Requirement">
+      <ATTR NAME="text">A remote service session shall automatically terminate after 15 minutes of inactivity.</ATTR>
+      <ATTR NAME="keyword">remote_access</ATTR>
+      <ATTR NAME="level">L2</ATTR>
+      <ATTR NAME="baseline_version">1</ATTR>
+      <ATTR NAME="suspect">0</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_needle_gauge_range" TYPE="Test">
+      <ATTR NAME="name">Verification test for needle_gauge_range</ATTR>
+      <ATTR NAME="exercises_keyword">needle_gauge</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'needle_gauge' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_needle_gauge_lockout" TYPE="Test">
+      <ATTR NAME="name">Verification test for needle_gauge_lockout</ATTR>
+      <ATTR NAME="exercises_keyword">needle_gauge</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'needle_gauge' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_needle_shield_engagement" TYPE="Test">
+      <ATTR NAME="name">Verification test for needle_shield_engagement</ATTR>
+      <ATTR NAME="exercises_keyword">needle_shield</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'needle_shield' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_needle_shield_selftest" TYPE="Test">
+      <ATTR NAME="name">Verification test for needle_shield_selftest</ATTR>
+      <ATTR NAME="exercises_keyword">needle_shield</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'needle_shield' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_needle_compat_labeling" TYPE="Test">
+      <ATTR NAME="name">Verification test for needle_compat_labeling</ATTR>
+      <ATTR NAME="exercises_keyword">needle_label</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'needle_label' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_needle_label_multilang" TYPE="Test">
+      <ATTR NAME="name">Verification test for needle_label_multilang</ATTR>
+      <ATTR NAME="exercises_keyword">needle_label</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'needle_label' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_luer_lock_torque" TYPE="Test">
+      <ATTR NAME="name">Verification test for luer_lock_torque</ATTR>
+      <ATTR NAME="exercises_keyword">luer_lock</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'luer_lock' behavior; recorded result is a failure (acceptance criterion not met on this run).</ATTR>
+      <ATTR NAME="result">fail</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_line_leak_detection" TYPE="Test">
+      <ATTR NAME="name">Verification test for line_leak_detection</ATTR>
+      <ATTR NAME="exercises_keyword">lot_expiration</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'lot_expiration' behavior, not 'line_leak'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_leak_alarm_latency" TYPE="Test">
+      <ATTR NAME="name">Verification test for leak_alarm_latency</ATTR>
+      <ATTR NAME="exercises_keyword">line_leak</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'line_leak' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_line_leak_selftest" TYPE="Test">
+      <ATTR NAME="name">Verification test for line_leak_selftest</ATTR>
+      <ATTR NAME="exercises_keyword">line_leak</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'line_leak' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_catheter_compat_matrix" TYPE="Test">
+      <ATTR NAME="name">Verification test for catheter_compat_matrix</ATTR>
+      <ATTR NAME="exercises_keyword">catheter_compat</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'catheter_compat' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_catheter_compat_override" TYPE="Test">
+      <ATTR NAME="name">Verification test for catheter_compat_override</ATTR>
+      <ATTR NAME="exercises_keyword">catheter_compat</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'catheter_compat' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_flow_rate_closed_loop" TYPE="Test">
+      <ATTR NAME="name">Verification test for flow_rate_closed_loop</ATTR>
+      <ATTR NAME="exercises_keyword">flow_rate</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'flow_rate' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_flow_rate_calibration" TYPE="Test">
+      <ATTR NAME="name">Verification test for flow_rate_calibration</ATTR>
+      <ATTR NAME="exercises_keyword">flow_rate</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'flow_rate' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_volume_accuracy_calibration" TYPE="Test">
+      <ATTR NAME="name">Verification test for volume_accuracy_calibration</ATTR>
+      <ATTR NAME="exercises_keyword">volume_delivered</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'volume_delivered' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_dual_syringe_sync" TYPE="Test">
+      <ATTR NAME="name">Verification test for dual_syringe_sync</ATTR>
+      <ATTR NAME="exercises_keyword">dual_syringe</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'dual_syringe' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_dual_syringe_ratio" TYPE="Test">
+      <ATTR NAME="name">Verification test for dual_syringe_ratio</ATTR>
+      <ATTR NAME="exercises_keyword">dual_syringe</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'dual_syringe' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_max_pressure_limit" TYPE="Test">
+      <ATTR NAME="name">Verification test for max_pressure_limit</ATTR>
+      <ATTR NAME="exercises_keyword">needle_gauge</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'needle_gauge' behavior, not 'max_pressure'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_max_pressure_derate" TYPE="Test">
+      <ATTR NAME="name">Verification test for max_pressure_derate</ATTR>
+      <ATTR NAME="exercises_keyword">max_pressure</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'max_pressure' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_air_sensor_detection" TYPE="Test">
+      <ATTR NAME="name">Verification test for air_sensor_detection</ATTR>
+      <ATTR NAME="exercises_keyword">air_bubble</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'air_bubble' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_air_sensor_response" TYPE="Test">
+      <ATTR NAME="name">Verification test for air_sensor_response</ATTR>
+      <ATTR NAME="exercises_keyword">air_bubble</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'air_bubble' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_air_sensor_selftest" TYPE="Test">
+      <ATTR NAME="name">Verification test for air_sensor_selftest</ATTR>
+      <ATTR NAME="exercises_keyword">air_bubble</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'air_bubble' behavior; recorded result is a failure (acceptance criterion not met on this run).</ATTR>
+      <ATTR NAME="result">fail</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_air_purge_procedure" TYPE="Test">
+      <ATTR NAME="name">Verification test for air_purge_procedure</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_log</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'alarm_log' behavior, not 'air_purge'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_air_purge_verification" TYPE="Test">
+      <ATTR NAME="name">Verification test for air_purge_verification</ATTR>
+      <ATTR NAME="exercises_keyword">air_purge</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'air_purge' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_air_alarm_annunciation" TYPE="Test">
+      <ATTR NAME="name">Verification test for air_alarm_annunciation</ATTR>
+      <ATTR NAME="exercises_keyword">air_purge</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'air_purge' behavior, not 'air_bubble'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_low_reservoir_warning" TYPE="Test">
+      <ATTR NAME="name">Verification test for low_reservoir_warning</ATTR>
+      <ATTR NAME="exercises_keyword">reservoir_level</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'reservoir_level' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_lot_expiration_tracking" TYPE="Test">
+      <ATTR NAME="name">Verification test for lot_expiration_tracking</ATTR>
+      <ATTR NAME="exercises_keyword">lot_expiration</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'lot_expiration' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_reservoir_barcode_scan" TYPE="Test">
+      <ATTR NAME="name">Verification test for reservoir_barcode_scan</ATTR>
+      <ATTR NAME="exercises_keyword">reservoir_barcode</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'reservoir_barcode' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_reservoir_barcode_mismatch" TYPE="Test">
+      <ATTR NAME="name">Verification test for reservoir_barcode_mismatch</ATTR>
+      <ATTR NAME="exercises_keyword">reservoir_barcode</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'reservoir_barcode' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_occlusion_pressure_threshold" TYPE="Test">
+      <ATTR NAME="name">Verification test for occlusion_pressure_threshold</ATTR>
+      <ATTR NAME="exercises_keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'occlusion_pressure' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_occlusion_threshold_range" TYPE="Test">
+      <ATTR NAME="name">Verification test for occlusion_threshold_range</ATTR>
+      <ATTR NAME="exercises_keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'occlusion_pressure' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_occlusion_response_halt" TYPE="Test">
+      <ATTR NAME="name">Verification test for occlusion_response_halt</ATTR>
+      <ATTR NAME="exercises_keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'occlusion_pressure' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_extravasation_pattern_detect" TYPE="Test">
+      <ATTR NAME="name">Verification test for extravasation_pattern_detect</ATTR>
+      <ATTR NAME="exercises_keyword">extravasation</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'extravasation' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_extravasation_operator_alert" TYPE="Test">
+      <ATTR NAME="name">Verification test for extravasation_operator_alert</ATTR>
+      <ATTR NAME="exercises_keyword">extravasation</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'extravasation' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_occlusion_alarm_priority" TYPE="Test">
+      <ATTR NAME="name">Verification test for occlusion_alarm_priority</ATTR>
+      <ATTR NAME="exercises_keyword">occlusion_pressure</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'occlusion_pressure' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_alarm_priority_levels" TYPE="Test">
+      <ATTR NAME="name">Verification test for alarm_priority_levels</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_priority</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'alarm_priority' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_alarm_visual_coding" TYPE="Test">
+      <ATTR NAME="name">Verification test for alarm_visual_coding</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_priority</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'alarm_priority' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_alarm_silence_timeout" TYPE="Test">
+      <ATTR NAME="name">Verification test for alarm_silence_timeout</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_silence</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'alarm_silence' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_alarm_silence_max_duration" TYPE="Test">
+      <ATTR NAME="name">Verification test for alarm_silence_max_duration</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_silence</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'alarm_silence' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_alarm_log_retention" TYPE="Test">
+      <ATTR NAME="name">Verification test for alarm_log_retention</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_log</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'alarm_log' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_alarm_log_export" TYPE="Test">
+      <ATTR NAME="name">Verification test for alarm_log_export</ATTR>
+      <ATTR NAME="exercises_keyword">alarm_log</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'alarm_log' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_param_range_validation" TYPE="Test">
+      <ATTR NAME="name">Verification test for param_range_validation</ATTR>
+      <ATTR NAME="exercises_keyword">param_validation</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'param_validation' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_param_confirm_dialog" TYPE="Test">
+      <ATTR NAME="name">Verification test for param_confirm_dialog</ATTR>
+      <ATTR NAME="exercises_keyword">param_validation</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'param_validation' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_protocol_library" TYPE="Test">
+      <ATTR NAME="name">Verification test for protocol_library</ATTR>
+      <ATTR NAME="exercises_keyword">protocol_library</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'protocol_library' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_protocol_library_custom" TYPE="Test">
+      <ATTR NAME="name">Verification test for protocol_library_custom</ATTR>
+      <ATTR NAME="exercises_keyword">protocol_library</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'protocol_library' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_ui_lockout_cleaning" TYPE="Test">
+      <ATTR NAME="name">Verification test for ui_lockout_cleaning</ATTR>
+      <ATTR NAME="exercises_keyword">volume_delivered</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'volume_delivered' behavior, not 'ui_lockout'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_ui_lockout_override" TYPE="Test">
+      <ATTR NAME="name">Verification test for ui_lockout_override</ATTR>
+      <ATTR NAME="exercises_keyword">ui_lockout</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'ui_lockout' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_battery_backup_runtime" TYPE="Test">
+      <ATTR NAME="name">Verification test for battery_backup_runtime</ATTR>
+      <ATTR NAME="exercises_keyword">battery_backup</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'battery_backup' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_power_loss_state_preserve" TYPE="Test">
+      <ATTR NAME="name">Verification test for power_loss_state_preserve</ATTR>
+      <ATTR NAME="exercises_keyword">power_loss</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'power_loss' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_ground_fault_protection" TYPE="Test">
+      <ATTR NAME="name">Verification test for ground_fault_protection</ATTR>
+      <ATTR NAME="exercises_keyword">ground_fault</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'ground_fault' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_ground_fault_selftest" TYPE="Test">
+      <ATTR NAME="name">Verification test for ground_fault_selftest</ATTR>
+      <ATTR NAME="exercises_keyword">ground_fault</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'ground_fault' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_injection_record_completeness" TYPE="Test">
+      <ATTR NAME="name">Verification test for injection_record_completeness</ATTR>
+      <ATTR NAME="exercises_keyword">ip_rating</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'ip_rating' behavior, not 'injection_record'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_injection_record_integrity" TYPE="Test">
+      <ATTR NAME="name">Verification test for injection_record_integrity</ATTR>
+      <ATTR NAME="exercises_keyword">injection_record</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'injection_record' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_injection_record_export" TYPE="Test">
+      <ATTR NAME="name">Verification test for injection_record_export</ATTR>
+      <ATTR NAME="exercises_keyword">injection_record</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'injection_record' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_audit_trail_user_actions" TYPE="Test">
+      <ATTR NAME="name">Verification test for audit_trail_user_actions</ATTR>
+      <ATTR NAME="exercises_keyword">audit_trail</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'audit_trail' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_audit_trail_retention" TYPE="Test">
+      <ATTR NAME="name">Verification test for audit_trail_retention</ATTR>
+      <ATTR NAME="exercises_keyword">audit_trail</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'audit_trail' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_clock_sync_ntp" TYPE="Test">
+      <ATTR NAME="name">Verification test for clock_sync_ntp</ATTR>
+      <ATTR NAME="exercises_keyword">clock_sync</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'clock_sync' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_clock_sync_fallback" TYPE="Test">
+      <ATTR NAME="name">Verification test for clock_sync_fallback</ATTR>
+      <ATTR NAME="exercises_keyword">clock_sync</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'clock_sync' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_reprocessing_cycle_validation" TYPE="Test">
+      <ATTR NAME="name">Verification test for reprocessing_cycle_validation</ATTR>
+      <ATTR NAME="exercises_keyword">reprocessing</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'reprocessing' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_reprocessing_cycle_count_display" TYPE="Test">
+      <ATTR NAME="name">Verification test for reprocessing_cycle_count_display</ATTR>
+      <ATTR NAME="exercises_keyword">reprocessing</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'reprocessing' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_housing_material_disinfectant" TYPE="Test">
+      <ATTR NAME="name">Verification test for housing_material_disinfectant</ATTR>
+      <ATTR NAME="exercises_keyword">injection_record</ATTR>
+      <ATTR NAME="procedure_text">Procedure records a passing result, but the procedure text and acceptance check actually exercise 'injection_record' behavior, not 'housing_material'.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_ip_rating_fluid_ingress" TYPE="Test">
+      <ATTR NAME="name">Verification test for ip_rating_fluid_ingress</ATTR>
+      <ATTR NAME="exercises_keyword">ip_rating</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'ip_rating' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_emc_immunity" TYPE="Test">
+      <ATTR NAME="name">Verification test for emc_immunity</ATTR>
+      <ATTR NAME="exercises_keyword">emc_immunity</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'emc_immunity' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_emc_mri_conditional" TYPE="Test">
+      <ATTR NAME="name">Verification test for emc_mri_conditional</ATTR>
+      <ATTR NAME="exercises_keyword">emc_immunity</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'emc_immunity' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_caster_brake_stability" TYPE="Test">
+      <ATTR NAME="name">Verification test for caster_brake_stability</ATTR>
+      <ATTR NAME="exercises_keyword">caster_stability</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'caster_stability' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_caster_lock_indicator" TYPE="Test">
+      <ATTR NAME="name">Verification test for caster_lock_indicator</ATTR>
+      <ATTR NAME="exercises_keyword">caster_stability</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'caster_stability' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_watchdog_timer_reset" TYPE="Test">
+      <ATTR NAME="name">Verification test for watchdog_timer_reset</ATTR>
+      <ATTR NAME="exercises_keyword">watchdog</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'watchdog' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_watchdog_selftest_poweron" TYPE="Test">
+      <ATTR NAME="name">Verification test for watchdog_selftest_poweron</ATTR>
+      <ATTR NAME="exercises_keyword">watchdog</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'watchdog' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_dual_channel_pressure_check" TYPE="Test">
+      <ATTR NAME="name">Verification test for dual_channel_pressure_check</ATTR>
+      <ATTR NAME="exercises_keyword">dual_channel</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'dual_channel' behavior; recorded result is a failure (acceptance criterion not met on this run).</ATTR>
+      <ATTR NAME="result">fail</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_software_version_integrity" TYPE="Test">
+      <ATTR NAME="name">Verification test for software_version_integrity</ATTR>
+      <ATTR NAME="exercises_keyword">sw_integrity</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'sw_integrity' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_safe_state_definition" TYPE="Test">
+      <ATTR NAME="name">Verification test for safe_state_definition</ATTR>
+      <ATTR NAME="exercises_keyword">safe_state</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'safe_state' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_emr_worklist_integrity" TYPE="Test">
+      <ATTR NAME="name">Verification test for emr_worklist_integrity</ATTR>
+      <ATTR NAME="exercises_keyword">emr_worklist</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'emr_worklist' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_emr_data_encryption" TYPE="Test">
+      <ATTR NAME="name">Verification test for emr_data_encryption</ATTR>
+      <ATTR NAME="exercises_keyword">emr_worklist</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'emr_worklist' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_remote_service_access_auth" TYPE="Test">
+      <ATTR NAME="name">Verification test for remote_service_access_auth</ATTR>
+      <ATTR NAME="exercises_keyword">remote_access</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'remote_access' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="test:test_remote_access_session_timeout" TYPE="Test">
+      <ATTR NAME="name">Verification test for remote_access_session_timeout</ATTR>
+      <ATTR NAME="exercises_keyword">remote_access</ATTR>
+      <ATTR NAME="procedure_text">Procedure correctly exercises 'remote_access' behavior and passes.</ATTR>
+      <ATTR NAME="result">pass</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_air_bubble" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'air_bubble'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_air_purge" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'air_purge'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_alarm_log" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'alarm_log'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_alarm_priority" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'alarm_priority'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_alarm_silence" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'alarm_silence'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_audit_trail" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'audit_trail'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_battery_backup" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'battery_backup'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_caster_stability" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'caster_stability'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_catheter_compat" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'catheter_compat'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_clock_sync" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'clock_sync'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_drop_shock" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'drop_shock'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_dual_channel" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'dual_channel'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_dual_syringe" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'dual_syringe'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_emc_immunity" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'emc_immunity'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_emr_worklist" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'emr_worklist'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_extravasation" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'extravasation'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_flow_rate" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'flow_rate'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_ground_fault" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'ground_fault'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_housing_material" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'housing_material'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_injection_record" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'injection_record'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_ip_rating" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'ip_rating'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_line_leak" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'line_leak'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_lot_expiration" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'lot_expiration'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_luer_lock" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'luer_lock'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_max_pressure" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'max_pressure'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_needle_gauge" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'needle_gauge'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_needle_label" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'needle_label'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_needle_shield" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'needle_shield'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_network_isolation" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'network_isolation'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_occlusion_pressure" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'occlusion_pressure'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_param_validation" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'param_validation'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_power_loss" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'power_loss'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_protocol_library" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'protocol_library'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_remote_access" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'remote_access'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_reprocessing" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'reprocessing'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_reservoir_barcode" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'reservoir_barcode'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_reservoir_level" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'reservoir_level'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_safe_state" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'safe_state'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_single_use_lockout" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'single_use_lockout'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_sw_integrity" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'sw_integrity'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_ui_lockout" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'ui_lockout'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_volume_delivered" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'volume_delivered'.</ATTR>
+    </SPEC-OBJECT>
+    <SPEC-OBJECT IDENTIFIER="rc:rc_watchdog" TYPE="RiskControl">
+      <ATTR NAME="text">Risk control mitigating the hazard associated with 'watchdog'.</ATTR>
+    </SPEC-OBJECT>
+  </SPEC-OBJECTS>
+  <SPEC-RELATIONS>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_needle_gauge_range" TARGET="req:needle_gauge_range" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_needle_gauge_lockout" TARGET="req:needle_gauge_lockout" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_needle_shield_engagement" TARGET="req:needle_shield_engagement" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_needle_shield_selftest" TARGET="req:needle_shield_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_needle_compat_labeling" TARGET="req:needle_compat_labeling" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_needle_label_multilang" TARGET="req:needle_label_multilang" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_luer_lock_torque" TARGET="req:luer_lock_torque" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_line_leak_detection" TARGET="req:line_leak_detection" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_leak_alarm_latency" TARGET="req:leak_alarm_latency" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_line_leak_selftest" TARGET="req:line_leak_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_catheter_compat_matrix" TARGET="req:catheter_compat_matrix" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_catheter_compat_override" TARGET="req:catheter_compat_override" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_flow_rate_closed_loop" TARGET="req:flow_rate_closed_loop" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_flow_rate_calibration" TARGET="req:flow_rate_calibration" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_volume_accuracy_calibration" TARGET="req:volume_accuracy_calibration" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_dual_syringe_sync" TARGET="req:dual_syringe_sync" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_dual_syringe_ratio" TARGET="req:dual_syringe_ratio" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_max_pressure_limit" TARGET="req:max_pressure_limit" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_max_pressure_derate" TARGET="req:max_pressure_derate" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_air_sensor_detection" TARGET="req:air_sensor_detection" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_air_sensor_response" TARGET="req:air_sensor_response" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_air_sensor_selftest" TARGET="req:air_sensor_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_air_purge_procedure" TARGET="req:air_purge_procedure" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_air_purge_verification" TARGET="req:air_purge_verification" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_air_alarm_annunciation" TARGET="req:air_alarm_annunciation" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_low_reservoir_warning" TARGET="req:low_reservoir_warning" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_lot_expiration_tracking" TARGET="req:lot_expiration_tracking" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_reservoir_barcode_scan" TARGET="req:reservoir_barcode_scan" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_reservoir_barcode_mismatch" TARGET="req:reservoir_barcode_mismatch" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_occlusion_pressure_threshold" TARGET="req:occlusion_pressure_threshold" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_occlusion_threshold_range" TARGET="req:occlusion_threshold_range" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_occlusion_response_halt" TARGET="req:occlusion_response_halt" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_extravasation_pattern_detect" TARGET="req:extravasation_pattern_detect" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_extravasation_operator_alert" TARGET="req:extravasation_operator_alert" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_occlusion_alarm_priority" TARGET="req:occlusion_alarm_priority" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_alarm_priority_levels" TARGET="req:alarm_priority_levels" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_alarm_visual_coding" TARGET="req:alarm_visual_coding" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_alarm_silence_timeout" TARGET="req:alarm_silence_timeout" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_alarm_silence_max_duration" TARGET="req:alarm_silence_max_duration" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_alarm_log_retention" TARGET="req:alarm_log_retention" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_alarm_log_export" TARGET="req:alarm_log_export" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_param_range_validation" TARGET="req:param_range_validation" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_param_confirm_dialog" TARGET="req:param_confirm_dialog" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_protocol_library" TARGET="req:protocol_library" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_protocol_library_custom" TARGET="req:protocol_library_custom" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_ui_lockout_cleaning" TARGET="req:ui_lockout_cleaning" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_ui_lockout_override" TARGET="req:ui_lockout_override" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_battery_backup_runtime" TARGET="req:battery_backup_runtime" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_power_loss_state_preserve" TARGET="req:power_loss_state_preserve" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_ground_fault_protection" TARGET="req:ground_fault_protection" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_ground_fault_selftest" TARGET="req:ground_fault_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_injection_record_completeness" TARGET="req:injection_record_completeness" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_injection_record_integrity" TARGET="req:injection_record_integrity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_injection_record_export" TARGET="req:injection_record_export" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_audit_trail_user_actions" TARGET="req:audit_trail_user_actions" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_audit_trail_retention" TARGET="req:audit_trail_retention" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_clock_sync_ntp" TARGET="req:clock_sync_ntp" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_clock_sync_fallback" TARGET="req:clock_sync_fallback" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_reprocessing_cycle_validation" TARGET="req:reprocessing_cycle_validation" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_reprocessing_cycle_count_display" TARGET="req:reprocessing_cycle_count_display" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_housing_material_disinfectant" TARGET="req:housing_material_disinfectant" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_ip_rating_fluid_ingress" TARGET="req:ip_rating_fluid_ingress" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_emc_immunity" TARGET="req:emc_immunity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_emc_mri_conditional" TARGET="req:emc_mri_conditional" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_caster_brake_stability" TARGET="req:caster_brake_stability" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_caster_lock_indicator" TARGET="req:caster_lock_indicator" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_watchdog_timer_reset" TARGET="req:watchdog_timer_reset" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_watchdog_selftest_poweron" TARGET="req:watchdog_selftest_poweron" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_dual_channel_pressure_check" TARGET="req:dual_channel_pressure_check" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_software_version_integrity" TARGET="req:software_version_integrity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_safe_state_definition" TARGET="req:safe_state_definition" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_emr_worklist_integrity" TARGET="req:emr_worklist_integrity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_emr_data_encryption" TARGET="req:emr_data_encryption" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_remote_service_access_auth" TARGET="req:remote_service_access_auth" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Verifies" SOURCE="test:test_remote_access_session_timeout" TARGET="req:remote_access_session_timeout" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_needle_gauge" TARGET="req:needle_gauge_range" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_needle_gauge" TARGET="req:needle_gauge_lockout" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_needle_shield" TARGET="req:needle_shield_engagement" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_needle_shield" TARGET="req:needle_shield_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_needle_label" TARGET="req:needle_compat_labeling" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_needle_label" TARGET="req:needle_label_multilang" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_luer_lock" TARGET="req:luer_lock_torque" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_luer_lock" TARGET="req:luer_lock_indicator" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_line_leak" TARGET="req:line_leak_detection" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_line_leak" TARGET="req:leak_alarm_latency" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_line_leak" TARGET="req:line_leak_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_catheter_compat" TARGET="req:catheter_compat_matrix" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_catheter_compat" TARGET="req:catheter_compat_override" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_flow_rate" TARGET="req:flow_rate_accuracy" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_flow_rate" TARGET="req:flow_rate_closed_loop" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_flow_rate" TARGET="req:flow_rate_calibration" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_volume_delivered" TARGET="req:volume_accuracy" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_volume_delivered" TARGET="req:volume_accuracy_calibration" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_dual_syringe" TARGET="req:dual_syringe_sync" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_dual_syringe" TARGET="req:dual_syringe_ratio" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_max_pressure" TARGET="req:max_pressure_limit" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_max_pressure" TARGET="req:max_pressure_derate" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_air_bubble" TARGET="req:air_sensor_detection" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_air_bubble" TARGET="req:air_sensor_response" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_air_bubble" TARGET="req:air_sensor_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_air_purge" TARGET="req:air_purge_procedure" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_air_purge" TARGET="req:air_purge_verification" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_air_bubble" TARGET="req:air_alarm_annunciation" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_reservoir_level" TARGET="req:reservoir_level_sensing" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_reservoir_level" TARGET="req:low_reservoir_warning" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_lot_expiration" TARGET="req:lot_expiration_tracking" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_lot_expiration" TARGET="req:lot_expiration_grace" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_reservoir_barcode" TARGET="req:reservoir_barcode_scan" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_reservoir_barcode" TARGET="req:reservoir_barcode_mismatch" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_occlusion_pressure" TARGET="req:occlusion_pressure_threshold" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_occlusion_pressure" TARGET="req:occlusion_threshold_range" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_occlusion_pressure" TARGET="req:occlusion_response_halt" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_extravasation" TARGET="req:extravasation_pattern_detect" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_extravasation" TARGET="req:extravasation_operator_alert" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_occlusion_pressure" TARGET="req:occlusion_alarm_priority" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_alarm_priority" TARGET="req:alarm_priority_levels" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_alarm_priority" TARGET="req:alarm_visual_coding" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_alarm_silence" TARGET="req:alarm_silence_timeout" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_alarm_silence" TARGET="req:alarm_silence_max_duration" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_alarm_log" TARGET="req:alarm_log_retention" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_alarm_log" TARGET="req:alarm_log_export" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_param_validation" TARGET="req:param_range_validation" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_param_validation" TARGET="req:param_confirm_dialog" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_protocol_library" TARGET="req:protocol_library" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_protocol_library" TARGET="req:protocol_library_custom" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_ui_lockout" TARGET="req:ui_lockout_cleaning" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_ui_lockout" TARGET="req:ui_lockout_override" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_battery_backup" TARGET="req:battery_backup_runtime" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_battery_backup" TARGET="req:battery_health_monitor" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_power_loss" TARGET="req:power_loss_state_preserve" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_ground_fault" TARGET="req:ground_fault_protection" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_ground_fault" TARGET="req:ground_fault_selftest" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_injection_record" TARGET="req:injection_record_completeness" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_injection_record" TARGET="req:injection_record_integrity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_injection_record" TARGET="req:injection_record_export" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_audit_trail" TARGET="req:audit_trail_user_actions" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_audit_trail" TARGET="req:audit_trail_retention" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_clock_sync" TARGET="req:clock_sync_ntp" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_clock_sync" TARGET="req:clock_sync_fallback" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_reprocessing" TARGET="req:reprocessing_cycle_validation" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_reprocessing" TARGET="req:reprocessing_cycle_count_display" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_single_use_lockout" TARGET="req:single_use_component_lockout" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_single_use_lockout" TARGET="req:single_use_lockout_override" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_housing_material" TARGET="req:housing_material_disinfectant" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_ip_rating" TARGET="req:ip_rating_fluid_ingress" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_emc_immunity" TARGET="req:emc_immunity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_emc_immunity" TARGET="req:emc_mri_conditional" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_drop_shock" TARGET="req:drop_shock_rating" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_caster_stability" TARGET="req:caster_brake_stability" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_caster_stability" TARGET="req:caster_lock_indicator" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_watchdog" TARGET="req:watchdog_timer_reset" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_watchdog" TARGET="req:watchdog_selftest_poweron" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_dual_channel" TARGET="req:dual_channel_pressure_check" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_sw_integrity" TARGET="req:software_version_integrity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_sw_integrity" TARGET="req:sw_update_rollback" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_safe_state" TARGET="req:safe_state_definition" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_network_isolation" TARGET="req:network_isolation_degrade" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_emr_worklist" TARGET="req:emr_worklist_integrity" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_emr_worklist" TARGET="req:emr_data_encryption" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_remote_access" TARGET="req:remote_service_access_auth" SUSPECT="0"/>
+    <SPEC-RELATION TYPE="Implements" SOURCE="rc:rc_remote_access" TARGET="req:remote_access_session_timeout" SUSPECT="0"/>
+  </SPEC-RELATIONS>
+  <SPEC-HIERARCHY>
+    <SPEC-HIERARCHY-NODE REF="req:needle_gauge_range" PARENT-REF="un:un_needle"/>
+    <SPEC-HIERARCHY-NODE REF="req:needle_gauge_lockout" PARENT-REF="req:needle_gauge_range"/>
+    <SPEC-HIERARCHY-NODE REF="req:needle_shield_engagement" PARENT-REF="un:un_needle"/>
+    <SPEC-HIERARCHY-NODE REF="req:needle_shield_selftest" PARENT-REF="req:needle_shield_engagement"/>
+    <SPEC-HIERARCHY-NODE REF="req:needle_compat_labeling" PARENT-REF="un:un_needle"/>
+    <SPEC-HIERARCHY-NODE REF="req:needle_label_multilang" PARENT-REF="req:needle_compat_labeling"/>
+    <SPEC-HIERARCHY-NODE REF="req:luer_lock_torque" PARENT-REF="un:un_catheter"/>
+    <SPEC-HIERARCHY-NODE REF="req:luer_lock_indicator" PARENT-REF="req:luer_lock_torque"/>
+    <SPEC-HIERARCHY-NODE REF="req:line_leak_detection" PARENT-REF="un:un_catheter"/>
+    <SPEC-HIERARCHY-NODE REF="req:leak_alarm_latency" PARENT-REF="req:line_leak_detection"/>
+    <SPEC-HIERARCHY-NODE REF="req:line_leak_selftest" PARENT-REF="req:line_leak_detection"/>
+    <SPEC-HIERARCHY-NODE REF="req:catheter_compat_matrix" PARENT-REF="un:un_catheter"/>
+    <SPEC-HIERARCHY-NODE REF="req:catheter_compat_override" PARENT-REF="req:catheter_compat_matrix"/>
+    <SPEC-HIERARCHY-NODE REF="req:flow_rate_accuracy" PARENT-REF="un:un_flow"/>
+    <SPEC-HIERARCHY-NODE REF="req:flow_rate_closed_loop" PARENT-REF="req:flow_rate_accuracy"/>
+    <SPEC-HIERARCHY-NODE REF="req:flow_rate_calibration" PARENT-REF="req:flow_rate_accuracy"/>
+    <SPEC-HIERARCHY-NODE REF="req:volume_accuracy" PARENT-REF="un:un_flow"/>
+    <SPEC-HIERARCHY-NODE REF="req:volume_accuracy_calibration" PARENT-REF="req:volume_accuracy"/>
+    <SPEC-HIERARCHY-NODE REF="req:dual_syringe_sync" PARENT-REF="un:un_flow"/>
+    <SPEC-HIERARCHY-NODE REF="req:dual_syringe_ratio" PARENT-REF="req:dual_syringe_sync"/>
+    <SPEC-HIERARCHY-NODE REF="req:max_pressure_limit" PARENT-REF="un:un_flow"/>
+    <SPEC-HIERARCHY-NODE REF="req:max_pressure_derate" PARENT-REF="req:max_pressure_limit"/>
+    <SPEC-HIERARCHY-NODE REF="req:air_sensor_detection" PARENT-REF="un:un_air"/>
+    <SPEC-HIERARCHY-NODE REF="req:air_sensor_response" PARENT-REF="req:air_sensor_detection"/>
+    <SPEC-HIERARCHY-NODE REF="req:air_sensor_selftest" PARENT-REF="req:air_sensor_detection"/>
+    <SPEC-HIERARCHY-NODE REF="req:air_purge_procedure" PARENT-REF="un:un_air"/>
+    <SPEC-HIERARCHY-NODE REF="req:air_purge_verification" PARENT-REF="req:air_purge_procedure"/>
+    <SPEC-HIERARCHY-NODE REF="req:air_alarm_annunciation" PARENT-REF="un:un_air"/>
+    <SPEC-HIERARCHY-NODE REF="req:reservoir_level_sensing" PARENT-REF="un:un_reservoir"/>
+    <SPEC-HIERARCHY-NODE REF="req:low_reservoir_warning" PARENT-REF="req:reservoir_level_sensing"/>
+    <SPEC-HIERARCHY-NODE REF="req:lot_expiration_tracking" PARENT-REF="un:un_reservoir"/>
+    <SPEC-HIERARCHY-NODE REF="req:lot_expiration_grace" PARENT-REF="req:lot_expiration_tracking"/>
+    <SPEC-HIERARCHY-NODE REF="req:reservoir_barcode_scan" PARENT-REF="un:un_reservoir"/>
+    <SPEC-HIERARCHY-NODE REF="req:reservoir_barcode_mismatch" PARENT-REF="req:reservoir_barcode_scan"/>
+    <SPEC-HIERARCHY-NODE REF="req:occlusion_pressure_threshold" PARENT-REF="un:un_occlusion"/>
+    <SPEC-HIERARCHY-NODE REF="req:occlusion_threshold_range" PARENT-REF="req:occlusion_pressure_threshold"/>
+    <SPEC-HIERARCHY-NODE REF="req:occlusion_response_halt" PARENT-REF="req:occlusion_pressure_threshold"/>
+    <SPEC-HIERARCHY-NODE REF="req:extravasation_pattern_detect" PARENT-REF="un:un_occlusion"/>
+    <SPEC-HIERARCHY-NODE REF="req:extravasation_operator_alert" PARENT-REF="req:extravasation_pattern_detect"/>
+    <SPEC-HIERARCHY-NODE REF="req:occlusion_alarm_priority" PARENT-REF="un:un_occlusion"/>
+    <SPEC-HIERARCHY-NODE REF="req:alarm_priority_levels" PARENT-REF="un:un_alarm"/>
+    <SPEC-HIERARCHY-NODE REF="req:alarm_visual_coding" PARENT-REF="req:alarm_priority_levels"/>
+    <SPEC-HIERARCHY-NODE REF="req:alarm_silence_timeout" PARENT-REF="un:un_alarm"/>
+    <SPEC-HIERARCHY-NODE REF="req:alarm_silence_max_duration" PARENT-REF="req:alarm_silence_timeout"/>
+    <SPEC-HIERARCHY-NODE REF="req:alarm_log_retention" PARENT-REF="un:un_alarm"/>
+    <SPEC-HIERARCHY-NODE REF="req:alarm_log_export" PARENT-REF="req:alarm_log_retention"/>
+    <SPEC-HIERARCHY-NODE REF="req:param_range_validation" PARENT-REF="un:un_ui"/>
+    <SPEC-HIERARCHY-NODE REF="req:param_confirm_dialog" PARENT-REF="req:param_range_validation"/>
+    <SPEC-HIERARCHY-NODE REF="req:protocol_library" PARENT-REF="un:un_ui"/>
+    <SPEC-HIERARCHY-NODE REF="req:protocol_library_custom" PARENT-REF="req:protocol_library"/>
+    <SPEC-HIERARCHY-NODE REF="req:ui_lockout_cleaning" PARENT-REF="un:un_ui"/>
+    <SPEC-HIERARCHY-NODE REF="req:ui_lockout_override" PARENT-REF="req:ui_lockout_cleaning"/>
+    <SPEC-HIERARCHY-NODE REF="req:battery_backup_runtime" PARENT-REF="un:un_power"/>
+    <SPEC-HIERARCHY-NODE REF="req:battery_health_monitor" PARENT-REF="req:battery_backup_runtime"/>
+    <SPEC-HIERARCHY-NODE REF="req:power_loss_state_preserve" PARENT-REF="un:un_power"/>
+    <SPEC-HIERARCHY-NODE REF="req:ground_fault_protection" PARENT-REF="un:un_power"/>
+    <SPEC-HIERARCHY-NODE REF="req:ground_fault_selftest" PARENT-REF="req:ground_fault_protection"/>
+    <SPEC-HIERARCHY-NODE REF="req:injection_record_completeness" PARENT-REF="un:un_data"/>
+    <SPEC-HIERARCHY-NODE REF="req:injection_record_integrity" PARENT-REF="req:injection_record_completeness"/>
+    <SPEC-HIERARCHY-NODE REF="req:injection_record_export" PARENT-REF="req:injection_record_completeness"/>
+    <SPEC-HIERARCHY-NODE REF="req:audit_trail_user_actions" PARENT-REF="un:un_data"/>
+    <SPEC-HIERARCHY-NODE REF="req:audit_trail_retention" PARENT-REF="req:audit_trail_user_actions"/>
+    <SPEC-HIERARCHY-NODE REF="req:clock_sync_ntp" PARENT-REF="un:un_data"/>
+    <SPEC-HIERARCHY-NODE REF="req:clock_sync_fallback" PARENT-REF="req:clock_sync_ntp"/>
+    <SPEC-HIERARCHY-NODE REF="req:reprocessing_cycle_validation" PARENT-REF="un:un_sterilization"/>
+    <SPEC-HIERARCHY-NODE REF="req:reprocessing_cycle_count_display" PARENT-REF="req:reprocessing_cycle_validation"/>
+    <SPEC-HIERARCHY-NODE REF="req:single_use_component_lockout" PARENT-REF="un:un_sterilization"/>
+    <SPEC-HIERARCHY-NODE REF="req:single_use_lockout_override" PARENT-REF="req:single_use_component_lockout"/>
+    <SPEC-HIERARCHY-NODE REF="req:housing_material_disinfectant" PARENT-REF="un:un_sterilization"/>
+    <SPEC-HIERARCHY-NODE REF="req:ip_rating_fluid_ingress" PARENT-REF="un:un_mechanical"/>
+    <SPEC-HIERARCHY-NODE REF="req:emc_immunity" PARENT-REF="un:un_mechanical"/>
+    <SPEC-HIERARCHY-NODE REF="req:emc_mri_conditional" PARENT-REF="req:emc_immunity"/>
+    <SPEC-HIERARCHY-NODE REF="req:drop_shock_rating" PARENT-REF="un:un_mechanical"/>
+    <SPEC-HIERARCHY-NODE REF="req:caster_brake_stability" PARENT-REF="un:un_mechanical"/>
+    <SPEC-HIERARCHY-NODE REF="req:caster_lock_indicator" PARENT-REF="req:caster_brake_stability"/>
+    <SPEC-HIERARCHY-NODE REF="req:watchdog_timer_reset" PARENT-REF="un:un_swsafety"/>
+    <SPEC-HIERARCHY-NODE REF="req:watchdog_selftest_poweron" PARENT-REF="req:watchdog_timer_reset"/>
+    <SPEC-HIERARCHY-NODE REF="req:dual_channel_pressure_check" PARENT-REF="un:un_swsafety"/>
+    <SPEC-HIERARCHY-NODE REF="req:software_version_integrity" PARENT-REF="un:un_swsafety"/>
+    <SPEC-HIERARCHY-NODE REF="req:sw_update_rollback" PARENT-REF="req:software_version_integrity"/>
+    <SPEC-HIERARCHY-NODE REF="req:safe_state_definition" PARENT-REF="un:un_swsafety"/>
+    <SPEC-HIERARCHY-NODE REF="req:network_isolation_degrade" PARENT-REF="un:un_network"/>
+    <SPEC-HIERARCHY-NODE REF="req:emr_worklist_integrity" PARENT-REF="un:un_network"/>
+    <SPEC-HIERARCHY-NODE REF="req:emr_data_encryption" PARENT-REF="req:emr_worklist_integrity"/>
+    <SPEC-HIERARCHY-NODE REF="req:remote_service_access_auth" PARENT-REF="un:un_network"/>
+    <SPEC-HIERARCHY-NODE REF="req:remote_access_session_timeout" PARENT-REF="req:remote_service_access_auth"/>
+  </SPEC-HIERARCHY>
+</REQ-IF>

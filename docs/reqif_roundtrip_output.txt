@@ -1,0 +1,8 @@
+exported ReqIF file: docs/contrast_injector_requirements.reqif.xml (104736 bytes)
+round trip lossless (original snapshot == reimported snapshot): True
+  section 'user_needs': 14 items
+  section 'requirements': 86 items
+  section 'tests': 75 items
+  section 'risk_controls': 43 items
+  section 'requirement_tests': 75 items
+  section 'requirement_risk_controls': 86 items

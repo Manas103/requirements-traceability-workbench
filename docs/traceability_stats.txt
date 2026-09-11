@@ -1,0 +1,366 @@
+user needs: 14
+requirements: 86
+
+requirements with >=1 linked risk control: 86/86
+requirements with >=1 linked test: 75/86 (expect 75 = 86 - 11 seeded orphans)
+
+verification report: 72/86 VERIFIED
+  NOT VERIFIED, no evidence attached: 11
+  NOT VERIFIED, failing evidence present: 3
+  refusal check: every requirement with zero evidence reported NOT VERIFIED: True
+
+orphan detection (fast indexed scan): 11 found
+orphan detection (slow reference oracle): 11 found
+fast == reference oracle: True
+orphan catch rate: 11/11 seeded orphans caught (missed: [])
+orphan false positives on the other 75 requirements: 0 []
+
+non-verifying test detection: 7 flagged
+non-verifying catch rate: 7/7 seeded non-verifying tests caught (missed: [])
+non-verifying false positives: 0 []
+
+[VERIFIED] needle_gauge_range
+    reason: all attached evidence passed
+    evidence [PASS] test_needle_gauge_range exercises=needle_gauge
+
+[VERIFIED] needle_gauge_lockout
+    reason: all attached evidence passed
+    evidence [PASS] test_needle_gauge_lockout exercises=needle_gauge
+
+[VERIFIED] needle_shield_engagement
+    reason: all attached evidence passed
+    evidence [PASS] test_needle_shield_engagement exercises=needle_shield
+
+[VERIFIED] needle_shield_selftest
+    reason: all attached evidence passed
+    evidence [PASS] test_needle_shield_selftest exercises=needle_shield
+
+[VERIFIED] needle_compat_labeling
+    reason: all attached evidence passed
+    evidence [PASS] test_needle_compat_labeling exercises=needle_label
+
+[VERIFIED] needle_label_multilang
+    reason: all attached evidence passed
+    evidence [PASS] test_needle_label_multilang exercises=needle_label
+
+[NOT VERIFIED] luer_lock_torque
+    reason: failing evidence present (test_luer_lock_torque: result=fail)
+    evidence [FAIL] test_luer_lock_torque exercises=luer_lock
+
+[NOT VERIFIED] luer_lock_indicator
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] line_leak_detection
+    reason: all attached evidence passed
+    evidence [PASS] test_line_leak_detection exercises=lot_expiration NON-VERIFYING(keyword mismatch)
+
+[VERIFIED] leak_alarm_latency
+    reason: all attached evidence passed
+    evidence [PASS] test_leak_alarm_latency exercises=line_leak
+
+[VERIFIED] line_leak_selftest
+    reason: all attached evidence passed
+    evidence [PASS] test_line_leak_selftest exercises=line_leak
+
+[VERIFIED] catheter_compat_matrix
+    reason: all attached evidence passed
+    evidence [PASS] test_catheter_compat_matrix exercises=catheter_compat
+
+[VERIFIED] catheter_compat_override
+    reason: all attached evidence passed
+    evidence [PASS] test_catheter_compat_override exercises=catheter_compat
+
+[NOT VERIFIED] flow_rate_accuracy
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] flow_rate_closed_loop
+    reason: all attached evidence passed
+    evidence [PASS] test_flow_rate_closed_loop exercises=flow_rate
+
+[VERIFIED] flow_rate_calibration
+    reason: all attached evidence passed
+    evidence [PASS] test_flow_rate_calibration exercises=flow_rate
+
+[NOT VERIFIED] volume_accuracy
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] volume_accuracy_calibration
+    reason: all attached evidence passed
+    evidence [PASS] test_volume_accuracy_calibration exercises=volume_delivered
+
+[VERIFIED] dual_syringe_sync
+    reason: all attached evidence passed
+    evidence [PASS] test_dual_syringe_sync exercises=dual_syringe
+
+[VERIFIED] dual_syringe_ratio
+    reason: all attached evidence passed
+    evidence [PASS] test_dual_syringe_ratio exercises=dual_syringe
+
+[VERIFIED] max_pressure_limit
+    reason: all attached evidence passed
+    evidence [PASS] test_max_pressure_limit exercises=needle_gauge NON-VERIFYING(keyword mismatch)
+
+[VERIFIED] max_pressure_derate
+    reason: all attached evidence passed
+    evidence [PASS] test_max_pressure_derate exercises=max_pressure
+
+[VERIFIED] air_sensor_detection
+    reason: all attached evidence passed
+    evidence [PASS] test_air_sensor_detection exercises=air_bubble
+
+[VERIFIED] air_sensor_response
+    reason: all attached evidence passed
+    evidence [PASS] test_air_sensor_response exercises=air_bubble
+
+[NOT VERIFIED] air_sensor_selftest
+    reason: failing evidence present (test_air_sensor_selftest: result=fail)
+    evidence [FAIL] test_air_sensor_selftest exercises=air_bubble
+
+[VERIFIED] air_purge_procedure
+    reason: all attached evidence passed
+    evidence [PASS] test_air_purge_procedure exercises=alarm_log NON-VERIFYING(keyword mismatch)
+
+[VERIFIED] air_purge_verification
+    reason: all attached evidence passed
+    evidence [PASS] test_air_purge_verification exercises=air_purge
+
+[VERIFIED] air_alarm_annunciation
+    reason: all attached evidence passed
+    evidence [PASS] test_air_alarm_annunciation exercises=air_purge NON-VERIFYING(keyword mismatch)
+
+[NOT VERIFIED] reservoir_level_sensing
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] low_reservoir_warning
+    reason: all attached evidence passed
+    evidence [PASS] test_low_reservoir_warning exercises=reservoir_level
+
+[VERIFIED] lot_expiration_tracking
+    reason: all attached evidence passed
+    evidence [PASS] test_lot_expiration_tracking exercises=lot_expiration
+
+[NOT VERIFIED] lot_expiration_grace
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] reservoir_barcode_scan
+    reason: all attached evidence passed
+    evidence [PASS] test_reservoir_barcode_scan exercises=reservoir_barcode
+
+[VERIFIED] reservoir_barcode_mismatch
+    reason: all attached evidence passed
+    evidence [PASS] test_reservoir_barcode_mismatch exercises=reservoir_barcode
+
+[VERIFIED] occlusion_pressure_threshold
+    reason: all attached evidence passed
+    evidence [PASS] test_occlusion_pressure_threshold exercises=occlusion_pressure
+
+[VERIFIED] occlusion_threshold_range
+    reason: all attached evidence passed
+    evidence [PASS] test_occlusion_threshold_range exercises=occlusion_pressure
+
+[VERIFIED] occlusion_response_halt
+    reason: all attached evidence passed
+    evidence [PASS] test_occlusion_response_halt exercises=occlusion_pressure
+
+[VERIFIED] extravasation_pattern_detect
+    reason: all attached evidence passed
+    evidence [PASS] test_extravasation_pattern_detect exercises=extravasation
+
+[VERIFIED] extravasation_operator_alert
+    reason: all attached evidence passed
+    evidence [PASS] test_extravasation_operator_alert exercises=extravasation
+
+[VERIFIED] occlusion_alarm_priority
+    reason: all attached evidence passed
+    evidence [PASS] test_occlusion_alarm_priority exercises=occlusion_pressure
+
+[VERIFIED] alarm_priority_levels
+    reason: all attached evidence passed
+    evidence [PASS] test_alarm_priority_levels exercises=alarm_priority
+
+[VERIFIED] alarm_visual_coding
+    reason: all attached evidence passed
+    evidence [PASS] test_alarm_visual_coding exercises=alarm_priority
+
+[VERIFIED] alarm_silence_timeout
+    reason: all attached evidence passed
+    evidence [PASS] test_alarm_silence_timeout exercises=alarm_silence
+
+[VERIFIED] alarm_silence_max_duration
+    reason: all attached evidence passed
+    evidence [PASS] test_alarm_silence_max_duration exercises=alarm_silence
+
+[VERIFIED] alarm_log_retention
+    reason: all attached evidence passed
+    evidence [PASS] test_alarm_log_retention exercises=alarm_log
+
+[VERIFIED] alarm_log_export
+    reason: all attached evidence passed
+    evidence [PASS] test_alarm_log_export exercises=alarm_log
+
+[VERIFIED] param_range_validation
+    reason: all attached evidence passed
+    evidence [PASS] test_param_range_validation exercises=param_validation
+
+[VERIFIED] param_confirm_dialog
+    reason: all attached evidence passed
+    evidence [PASS] test_param_confirm_dialog exercises=param_validation
+
+[VERIFIED] protocol_library
+    reason: all attached evidence passed
+    evidence [PASS] test_protocol_library exercises=protocol_library
+
+[VERIFIED] protocol_library_custom
+    reason: all attached evidence passed
+    evidence [PASS] test_protocol_library_custom exercises=protocol_library
+
+[VERIFIED] ui_lockout_cleaning
+    reason: all attached evidence passed
+    evidence [PASS] test_ui_lockout_cleaning exercises=volume_delivered NON-VERIFYING(keyword mismatch)
+
+[VERIFIED] ui_lockout_override
+    reason: all attached evidence passed
+    evidence [PASS] test_ui_lockout_override exercises=ui_lockout
+
+[VERIFIED] battery_backup_runtime
+    reason: all attached evidence passed
+    evidence [PASS] test_battery_backup_runtime exercises=battery_backup
+
+[NOT VERIFIED] battery_health_monitor
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] power_loss_state_preserve
+    reason: all attached evidence passed
+    evidence [PASS] test_power_loss_state_preserve exercises=power_loss
+
+[VERIFIED] ground_fault_protection
+    reason: all attached evidence passed
+    evidence [PASS] test_ground_fault_protection exercises=ground_fault
+
+[VERIFIED] ground_fault_selftest
+    reason: all attached evidence passed
+    evidence [PASS] test_ground_fault_selftest exercises=ground_fault
+
+[VERIFIED] injection_record_completeness
+    reason: all attached evidence passed
+    evidence [PASS] test_injection_record_completeness exercises=ip_rating NON-VERIFYING(keyword mismatch)
+
+[VERIFIED] injection_record_integrity
+    reason: all attached evidence passed
+    evidence [PASS] test_injection_record_integrity exercises=injection_record
+
+[VERIFIED] injection_record_export
+    reason: all attached evidence passed
+    evidence [PASS] test_injection_record_export exercises=injection_record
+
+[VERIFIED] audit_trail_user_actions
+    reason: all attached evidence passed
+    evidence [PASS] test_audit_trail_user_actions exercises=audit_trail
+
+[VERIFIED] audit_trail_retention
+    reason: all attached evidence passed
+    evidence [PASS] test_audit_trail_retention exercises=audit_trail
+
+[VERIFIED] clock_sync_ntp
+    reason: all attached evidence passed
+    evidence [PASS] test_clock_sync_ntp exercises=clock_sync
+
+[VERIFIED] clock_sync_fallback
+    reason: all attached evidence passed
+    evidence [PASS] test_clock_sync_fallback exercises=clock_sync
+
+[VERIFIED] reprocessing_cycle_validation
+    reason: all attached evidence passed
+    evidence [PASS] test_reprocessing_cycle_validation exercises=reprocessing
+
+[VERIFIED] reprocessing_cycle_count_display
+    reason: all attached evidence passed
+    evidence [PASS] test_reprocessing_cycle_count_display exercises=reprocessing
+
+[NOT VERIFIED] single_use_component_lockout
+    reason: no evidence attached
+    evidence: (none attached)
+
+[NOT VERIFIED] single_use_lockout_override
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] housing_material_disinfectant
+    reason: all attached evidence passed
+    evidence [PASS] test_housing_material_disinfectant exercises=injection_record NON-VERIFYING(keyword mismatch)
+
+[VERIFIED] ip_rating_fluid_ingress
+    reason: all attached evidence passed
+    evidence [PASS] test_ip_rating_fluid_ingress exercises=ip_rating
+
+[VERIFIED] emc_immunity
+    reason: all attached evidence passed
+    evidence [PASS] test_emc_immunity exercises=emc_immunity
+
+[VERIFIED] emc_mri_conditional
+    reason: all attached evidence passed
+    evidence [PASS] test_emc_mri_conditional exercises=emc_immunity
+
+[NOT VERIFIED] drop_shock_rating
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] caster_brake_stability
+    reason: all attached evidence passed
+    evidence [PASS] test_caster_brake_stability exercises=caster_stability
+
+[VERIFIED] caster_lock_indicator
+    reason: all attached evidence passed
+    evidence [PASS] test_caster_lock_indicator exercises=caster_stability
+
+[VERIFIED] watchdog_timer_reset
+    reason: all attached evidence passed
+    evidence [PASS] test_watchdog_timer_reset exercises=watchdog
+
+[VERIFIED] watchdog_selftest_poweron
+    reason: all attached evidence passed
+    evidence [PASS] test_watchdog_selftest_poweron exercises=watchdog
+
+[NOT VERIFIED] dual_channel_pressure_check
+    reason: failing evidence present (test_dual_channel_pressure_check: result=fail)
+    evidence [FAIL] test_dual_channel_pressure_check exercises=dual_channel
+
+[VERIFIED] software_version_integrity
+    reason: all attached evidence passed
+    evidence [PASS] test_software_version_integrity exercises=sw_integrity
+
+[NOT VERIFIED] sw_update_rollback
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] safe_state_definition
+    reason: all attached evidence passed
+    evidence [PASS] test_safe_state_definition exercises=safe_state
+
+[NOT VERIFIED] network_isolation_degrade
+    reason: no evidence attached
+    evidence: (none attached)
+
+[VERIFIED] emr_worklist_integrity
+    reason: all attached evidence passed
+    evidence [PASS] test_emr_worklist_integrity exercises=emr_worklist
+
+[VERIFIED] emr_data_encryption
+    reason: all attached evidence passed
+    evidence [PASS] test_emr_data_encryption exercises=emr_worklist
+
+[VERIFIED] remote_service_access_auth
+    reason: all attached evidence passed
+    evidence [PASS] test_remote_service_access_auth exercises=remote_access
+
+[VERIFIED] remote_access_session_timeout
+    reason: all attached evidence passed
+    evidence [PASS] test_remote_access_session_timeout exercises=remote_access
+
+summary: 72/86 requirements VERIFIED
