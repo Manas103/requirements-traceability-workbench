@@ -1,0 +1,28 @@
+schema: story_seeded
+fast == reference oracle: True
+RELEASE GATE: FAIL. 22 missing link(s) found:
+  - story_alarm_create: missing documentation
+  - story_alarm_get: missing api_contract
+  - story_alarm_get: missing documentation
+  - story_alarm_get_edge: missing test
+  - story_audit_event_update: missing test
+  - story_audit_event_update_edge: missing documentation
+  - story_calibration_create: missing documentation
+  - story_device_create: missing api_contract
+  - story_device_create: missing test
+  - story_injection_create_edge: missing documentation
+  - story_injection_get: missing api_contract
+  - story_injection_get: missing test
+  - story_maintenance_record_create: missing documentation
+  - story_maintenance_record_create: missing test
+  - story_maintenance_record_get_edge: missing test
+  - story_network_config_create: missing documentation
+  - story_operator_get: missing test
+  - story_operator_update: missing documentation
+  - story_protocol_create: missing acceptance_criteria
+  - story_report_list: missing test
+  - story_report_update_edge: missing test
+  - story_reservoir_create: missing acceptance_criteria
+(60 stories checked, 22 link(s) missing)
+seeded gaps caught by name: 22/22
+test_links node ids recorded: 51, actually collected by pytest: 51, recorded-but-not-collected: 0

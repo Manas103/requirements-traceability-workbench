@@ -1,0 +1,4 @@
+schema: story_clean
+fast == reference oracle: True
+RELEASE GATE: PASS. All 60 stories have all 4 required links.
+test_links node ids recorded: 60, actually collected by pytest: 60, recorded-but-not-collected: 0
