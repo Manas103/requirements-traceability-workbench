@@ -31,7 +31,7 @@ from __future__ import annotations
 
 import random
 
-from . import domain_data
+from . import domain_data, hazards
 from .db import fresh_db
 
 SEED = 1234
@@ -86,6 +86,16 @@ def build(conn, seed: int = SEED):
         )
         un_id[key] = cur.lastrowid
 
+    # --- hazards: one per user need, see hazards.py. Inserted in the same
+    # order as HAZARDS so a fresh db's hazard ids are deterministic. ------
+    hz_id = {}
+    for hz_key, un_key, hz_text in hazards.HAZARDS:
+        cur = conn.execute(
+            "INSERT INTO hazards (key, text, user_need_id) VALUES (?, ?, ?)",
+            (hz_key, hz_text, un_id[un_key]),
+        )
+        hz_id[un_key] = cur.lastrowid
+
     # --- requirements: single insert pass. `flatten_tree` walks parent
     # before children, so a child's parent_id is always already known. ---
     req_id = {}
@@ -93,11 +103,13 @@ def build(conn, seed: int = SEED):
     for key, text, keyword, level, parent_key, user_need_key in flat:
         cur = conn.execute(
             "INSERT INTO requirements "
-            "(key, text, keyword, level, user_need_id, parent_id) VALUES (?, ?, ?, ?, ?, ?)",
+            "(key, text, keyword, level, user_need_id, parent_id, hazard_id) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
             (
                 key, text, keyword, level,
                 un_id[user_need_key] if parent_key is None else None,
                 req_id[parent_key] if parent_key is not None else None,
+                hz_id[user_need_key] if parent_key is None else None,
             ),
         )
         req_id[key] = cur.lastrowid
@@ -195,6 +207,7 @@ def build(conn, seed: int = SEED):
     return {
         "req_id": req_id,
         "un_id": un_id,
+        "hz_id": hz_id,
         "rc_id": rc_id,
         "orphan_keys": orphan_keys,
         "non_verifying_keys": non_verifying_keys,
@@ -208,7 +221,8 @@ def main(db_path="data/trace.db"):
     conn = fresh_db(db_path)
     info = build(conn)
     print(f"seeded {len(info['req_id'])} requirements, {len(info['un_id'])} user needs, "
-          f"{info['tests_created']} tests, {len(info['rc_id'])} risk controls")
+          f"{len(info['hz_id'])} hazards, {info['tests_created']} tests, "
+          f"{len(info['rc_id'])} risk controls")
     print(f"orphans: {len(info['orphan_keys'])}, non-verifying: "
           f"{len(info['non_verifying_keys'])}, failing: {len(info['failing_keys'])}")
     conn.close()

@@ -23,6 +23,19 @@ Schema shape and why:
   not a full history of suspect/cleared transitions. If that history were
   needed later, an append-only `suspect_events` table would be the honest
   next step instead of overloading these columns; see README Limitations.
+- `hazards` (Nov. 2026 extension) is a second root, one row per
+  `user_needs` row, so the same 86-requirement tree can be walked from
+  either anchor: `user_need_id` for the original feature-anchored view,
+  `hazard_id` for the hazard-anchored view (`trace_workbench/hazards.py`).
+  `seed.build()` sets `hazard_id` on every L1 requirement, mirroring
+  `user_need_id`; an L2 requirement's hazard is reached by walking
+  `parent_id` up to its L1 ancestor, the same way its user need already
+  is. This is not a CHECK-enforced invariant, deliberately: `reqif_io.
+  import_reqif` reconstructs the pre-extension model (user needs,
+  requirements, tests, risk controls) from a ReqIF file that predates
+  hazards and legitimately leaves `hazard_id` NULL throughout, which is
+  the honest scope stated in the README ("ReqIF scope"); hazards were
+  not added to the export format.
 """
 from __future__ import annotations
 
@@ -36,6 +49,13 @@ CREATE TABLE user_needs (
     text TEXT NOT NULL
 );
 
+CREATE TABLE hazards (
+    id INTEGER PRIMARY KEY,
+    key TEXT UNIQUE NOT NULL,
+    text TEXT NOT NULL,
+    user_need_id INTEGER UNIQUE REFERENCES user_needs(id)
+);
+
 CREATE TABLE requirements (
     id INTEGER PRIMARY KEY,
     key TEXT UNIQUE NOT NULL,
@@ -44,6 +64,7 @@ CREATE TABLE requirements (
     level TEXT NOT NULL CHECK (level IN ('L1', 'L2')),
     user_need_id INTEGER REFERENCES user_needs(id),
     parent_id INTEGER REFERENCES requirements(id),
+    hazard_id INTEGER REFERENCES hazards(id),
     baseline_version INTEGER NOT NULL DEFAULT 1,
     suspect INTEGER NOT NULL DEFAULT 0,
     CHECK ((user_need_id IS NULL) != (parent_id IS NULL))
@@ -82,6 +103,7 @@ CREATE TABLE requirement_risk_controls (
 
 CREATE INDEX idx_requirements_parent ON requirements(parent_id);
 CREATE INDEX idx_requirements_user_need ON requirements(user_need_id);
+CREATE INDEX idx_requirements_hazard ON requirements(hazard_id);
 CREATE INDEX idx_req_tests_requirement ON requirement_tests(requirement_id);
 CREATE INDEX idx_req_rc_requirement ON requirement_risk_controls(requirement_id);
 """

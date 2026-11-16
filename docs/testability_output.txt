@@ -1,0 +1,14 @@
+real tree (86 unmodified texts): 0 flagged (expected 0)
+seeded corpus (10 vague rewrites among 86): 10 flagged
+caught: 10/10 seeded untestable requirements
+false positives: 0 (clean requirements flagged): []
+  [SEEDED-UNTESTABLE] alarm_log_export: matched phrase 'user-friendly'
+  [SEEDED-UNTESTABLE] dual_syringe_sync: matched phrase 'promptly'
+  [SEEDED-UNTESTABLE] emc_immunity: matched phrase 'adequate'
+  [SEEDED-UNTESTABLE] flow_rate_closed_loop: matched phrase 'efficient'
+  [SEEDED-UNTESTABLE] luer_lock_torque: matched phrase 'reasonable'
+  [SEEDED-UNTESTABLE] needle_compat_labeling: matched phrase 'user-friendly'
+  [SEEDED-UNTESTABLE] protocol_library: matched phrase 'sufficient'
+  [SEEDED-UNTESTABLE] reprocessing_cycle_count_display: matched phrase 'where possible'
+  [SEEDED-UNTESTABLE] reservoir_barcode_mismatch: matched phrase 'timely'
+  [SEEDED-UNTESTABLE] volume_accuracy: matched phrase 'reasonable'
