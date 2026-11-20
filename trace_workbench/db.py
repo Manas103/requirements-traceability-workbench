@@ -106,6 +106,72 @@ CREATE INDEX idx_requirements_user_need ON requirements(user_need_id);
 CREATE INDEX idx_requirements_hazard ON requirements(hazard_id);
 CREATE INDEX idx_req_tests_requirement ON requirement_tests(requirement_id);
 CREATE INDEX idx_req_rc_requirement ON requirement_risk_controls(requirement_id);
+
+-- Nov. 2026 extension: a BOM-anchored digital thread grafted onto the same
+-- 86-requirement tree, carrying it through as-planned (bom_lines), as-built
+-- (as_built, one serialized unit per `units` row) and as-maintained
+-- (as_maintained) views. See trace_workbench/digital_thread.py.
+CREATE TABLE bom_lines (
+    id INTEGER PRIMARY KEY,
+    key TEXT UNIQUE NOT NULL,
+    requirement_id INTEGER NOT NULL REFERENCES requirements(id),
+    part_number TEXT NOT NULL,
+    revision TEXT NOT NULL,
+    spec_attribute TEXT NOT NULL,
+    nominal_value REAL NOT NULL,
+    tolerance REAL NOT NULL,
+    unit_of_measure TEXT NOT NULL
+);
+
+CREATE TABLE change_notices (
+    id INTEGER PRIMARY KEY,
+    key TEXT UNIQUE NOT NULL,
+    bom_line_id INTEGER NOT NULL REFERENCES bom_lines(id),
+    status TEXT NOT NULL CHECK (status IN ('approved', 'pending')),
+    authorized_part_number TEXT NOT NULL,
+    authorized_revision TEXT NOT NULL,
+    authorized_value REAL NOT NULL
+);
+
+CREATE TABLE deviations (
+    id INTEGER PRIMARY KEY,
+    key TEXT UNIQUE NOT NULL,
+    serial TEXT NOT NULL,
+    bom_line_id INTEGER NOT NULL REFERENCES bom_lines(id),
+    status TEXT NOT NULL CHECK (status IN ('signed', 'unsigned')),
+    UNIQUE (serial, bom_line_id)
+);
+
+CREATE TABLE units (
+    id INTEGER PRIMARY KEY,
+    serial TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE as_built (
+    id INTEGER PRIMARY KEY,
+    serial TEXT NOT NULL,
+    bom_line_id INTEGER NOT NULL REFERENCES bom_lines(id),
+    part_number TEXT NOT NULL,
+    revision TEXT NOT NULL,
+    measured_value REAL NOT NULL,
+    UNIQUE (serial, bom_line_id)
+);
+
+CREATE TABLE as_maintained (
+    id INTEGER PRIMARY KEY,
+    serial TEXT NOT NULL,
+    bom_line_id INTEGER NOT NULL REFERENCES bom_lines(id),
+    part_number TEXT NOT NULL,
+    revision TEXT NOT NULL,
+    measured_value REAL NOT NULL,
+    UNIQUE (serial, bom_line_id)
+);
+
+CREATE INDEX idx_bom_lines_requirement ON bom_lines(requirement_id);
+CREATE INDEX idx_change_notices_bom_line ON change_notices(bom_line_id);
+CREATE INDEX idx_deviations_serial_bom_line ON deviations(serial, bom_line_id);
+CREATE INDEX idx_as_built_serial ON as_built(serial);
+CREATE INDEX idx_as_maintained_serial ON as_maintained(serial);
 """
 
 

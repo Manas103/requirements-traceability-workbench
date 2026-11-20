@@ -1,0 +1,42 @@
+BOM lines (one per L1 requirement): 45
+requirements linked to a BOM line via themselves or an L1 ancestor: 86/86
+
+serialized units: 50
+as-built records (clean baseline): 2250
+
+as-maintained records (clean baseline): 360
+
+seeded unexplained variances: 180 across 6 classes
+  part_substitution: 30/30 caught
+  revision_mismatch: 30/30 caught
+  spec_out_of_tolerance: 30/30 caught
+  missing_build_record: 30/30 caught
+  unauthorized_rework: 30/30 caught
+  orphaned_maintenance_record: 30/30 caught
+total: 180/180 seeded variances caught, each named by class and item
+
+first 6 named variances (one per class):
+  [part_substitution] SN-0006/bom_dual_syringe_sync: as-built part PN-DUAL-SYRINGE-UNAUTH vs plan PN-DUAL-SYRINGE
+  [revision_mismatch] SN-0025/bom_occlusion_alarm_priority: as-built revision Z vs plan A
+  [spec_out_of_tolerance] SN-0044/bom_caster_brake_stability: as-built 590.15 outside 472.1+/-23.61
+  [missing_build_record] SN-0041/bom_network_isolation_degrade: no as-built record for a planned BOM line
+  [unauthorized_rework] SN-0046/bom_remote_service_access_auth: as-maintained differs from as-built with no signed deviation
+  [orphaned_maintenance_record] SN-0042/bom_extravasation_pattern_detect: as-maintained record with no as-built record
+
+false holds on 1000 clean serialized records: 0
+
+publish(SN-0027, [35]) on a clean pair: PUBLISHED (0 variances)
+publish(SN-0006, [9]) on the seeded part_substitution pair: REFUSED (1 variances: ['part_substitution'])
+
+requirements with no verifying record found by name: 11
+  luer_lock_indicator
+  flow_rate_accuracy
+  volume_accuracy
+  reservoir_level_sensing
+  lot_expiration_grace
+  battery_health_monitor
+  single_use_component_lockout
+  single_use_lockout_override
+  drop_shock_rating
+  sw_update_rollback
+  network_isolation_degrade
